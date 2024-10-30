@@ -4,7 +4,7 @@ import { PropTypes } from "prop-types";
 import { SigupJson } from "../../../type";
 import { useState } from "react";
 import { ValidateRegNo } from "../../../utils";
-function LeftPanel({ setBlurWindow, setHookJsonSignup }) {
+function LeftPanel({ setBlurWindow, setHookJsonSignup, setLoginOrSignTrue }) {
   const [ErrorInputArray, setErrorInputArray] = useState([false, false, false]);
   let HookJsonSignup = SigupJson;
   const RegNoOnchangeFunc = (event) => {
@@ -56,7 +56,13 @@ function LeftPanel({ setBlurWindow, setHookJsonSignup }) {
 
       <div className="font-open text-[#928E8E] font-medium text-sm  m-0  ps-1 mt-[-6px]">
         Already have an account,
-        <span className="font-open text-[#373EF1] font-medium text-sm ">
+        <span
+          className="font-open text-[#373EF1] font-medium text-sm  hover:drop-shadow-2xl hover:text-[#8488ff] hover:cursor-pointer"
+          onClick={() => {
+            setBlurWindow(true);
+            setLoginOrSignTrue();
+          }}
+        >
           sign-in
         </span>
       </div>
@@ -134,6 +140,7 @@ function LeftPanel({ setBlurWindow, setHookJsonSignup }) {
 LeftPanel.propTypes = {
   setBlurWindow: PropTypes.func.isRequired, // Marking placeholder as required
   setHookJsonSignup: PropTypes.func.isRequired,
+  setLoginOrSignTrue: PropTypes.func.isRequired,
   // HookJsonSignup: PropTypes.objectof.isRequired,
   // IsBlurWindowVisible: PropTypes.bool.isRequired,
 };

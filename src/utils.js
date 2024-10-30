@@ -41,3 +41,10 @@ export function ValidateEmail(email) {
 
     return regex.test(email);
 }
+export const Decoder = new TextDecoder("utf-8");
+export const ObjectMap = (obj, fn) =>
+    Object.fromEntries(
+        Object.entries(obj).map(
+            ([k, v], i) => [k, fn(v, k, i)]
+        )
+    )

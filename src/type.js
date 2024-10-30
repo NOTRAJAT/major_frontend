@@ -10,3 +10,8 @@ export const SigupJson = {
 }
 
 
+export const LoginJson = {
+    "email": "",
+    "password": ""
+}
+

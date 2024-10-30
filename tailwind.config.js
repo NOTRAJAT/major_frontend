@@ -13,7 +13,7 @@ export default {
       screens: {
         'xs': '480px',      // Custom extra small screen size (e.g., mobile)
         'sm-max': { 'max': '639px' },  // Custom max screen size for small devices
-        'md-range': { 'min': '640px', 'max': '1023px' },  // Custom range for medium devices
+        'md-range': { 'min': '0px', 'max': '1023px' },  // Custom range for medium devices
         'lg-range': { 'min': '1024px', 'max': '1279px' }, // Custom range for large devices
         'xl': '1440px',     // Custom extra-large screen size (e.g., desktops)
       },

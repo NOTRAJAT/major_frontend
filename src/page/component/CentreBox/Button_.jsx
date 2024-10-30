@@ -1,4 +1,4 @@
-import PropTypes, { func } from "prop-types";
+import PropTypes from "prop-types";
 
 const Button_ = ({ Name, TextColor, FunctionName }) => {
   return (
@@ -22,7 +22,7 @@ Button_.propTypes = {
   Name: PropTypes.string.isRequired,
   TextColor: PropTypes.string.isRequired,
 
-  FunctionName: PropTypes.arrayOf[func],
+  FunctionName: PropTypes.arrayOf(PropTypes.func),
   // Params: PropTypes.arrayOf(any),
 };
 

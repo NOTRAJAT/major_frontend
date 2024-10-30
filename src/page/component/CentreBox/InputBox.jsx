@@ -1,4 +1,4 @@
-import { PropTypes, func } from "prop-types";
+import { PropTypes } from "prop-types";
 
 const InputBox = ({ placeholder, FunctionName, Type = "text" }) => {
   return (
@@ -19,7 +19,7 @@ const InputBox = ({ placeholder, FunctionName, Type = "text" }) => {
 };
 InputBox.propTypes = {
   placeholder: PropTypes.string.isRequired, // Marking placeholder as required
-  FunctionName: PropTypes.arrayOf[func],
+  FunctionName: PropTypes.arrayOf(PropTypes.func),
   Type: PropTypes.string,
 };
 export default InputBox;

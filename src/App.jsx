@@ -1,7 +1,9 @@
 import "./App.css";
+
 import HomePage from "./page/HomePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SuccessPage from "./page/SuccessFull";
+import WeatherApp from "./page/weatherapp";
+
 function App() {
   return (
     <>
@@ -16,10 +18,13 @@ function App() {
             }
           />
 
-          <Route path="/success" element={<SuccessPage />} />
+          <Route path="/WeatherApp" element={<WeatherApp />} />
         </Routes>
       </Router>
     </>
+    // <>
+    //   <WeatherApp />
+    // </>
   );
 }
 
