@@ -3,7 +3,7 @@ import axios from "axios";
 import mqtt from 'mqtt'
 import { BACKEND_URL, MQTT_SERVER } from "./env";
 
-export const postData = async (inputValue = {}, EndPoint) => {
+export const postData = async (inputValue = {}, EndPoint, errFunction = () => { }) => {
     try {
         const response = await axios.post(`${BACKEND_URL + EndPoint}`, {
             ...inputValue
@@ -13,6 +13,7 @@ export const postData = async (inputValue = {}, EndPoint) => {
 
     } catch (error) {
         console.error('Error posting data:', error);
+        errFunction()
     }
 };
 export const postDataNoPayload = async (EndPoint, token, errFunction = () => { }) => {

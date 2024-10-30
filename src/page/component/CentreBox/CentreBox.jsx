@@ -155,7 +155,9 @@ const CentreBox = () => {
   const SignUpPost = () => {
     console.log(FinalJsonValidation());
     if (FinalJsonValidation()) {
-      const message = postData(HookJsonSignup, SIGN_URL);
+      const message = postData(HookJsonSignup, SIGN_URL, () => {
+        alert("This form is met with an error");
+      });
       // console.log("valusse");
       message.then((res) => {
         if (res.status == 200)
@@ -197,7 +199,9 @@ const CentreBox = () => {
 
   const LoginPost = () => {
     if (HookJsonLogin.email != "") {
-      const message = postData(HookJsonLogin, LOGIN_URL);
+      const message = postData(HookJsonLogin, LOGIN_URL, () => {
+        alert("This form is met with an error");
+      });
       // console.log("valusse");
       message.then((res) => {
         if (res.status == 200) {
