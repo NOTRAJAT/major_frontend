@@ -2,7 +2,7 @@ import "./App.css";
 
 import HomePage from "./page/HomePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import WeatherApp from "./page/weatherapp";
+import WeatherApp from "./page/WeatherApp";
 
 function App() {
   return (
