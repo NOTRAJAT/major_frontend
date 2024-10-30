@@ -50,7 +50,7 @@ function LeftPanel({ setBlurWindow, setHookJsonSignup, setLoginOrSignTrue }) {
   };
   return (
     <div className=" w-[30%] h-fit  pt-2  ">
-      <img src=".\public\svg\getting.svg" alt="" className="w-60 h-12 m-0 " />
+      <img src=".\svg\getting.svg" alt="" className="w-60 h-12 m-0 " />
 
       {/* <div className="font-inter_downloaded font-semibold text-4xl ">Getting Started..</div> */}
 

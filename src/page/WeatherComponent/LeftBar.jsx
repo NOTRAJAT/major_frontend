@@ -33,7 +33,7 @@ const LeftBar = ({ SetSubscription }) => {
           SetSubscription={SetSubscription}
           topic="Nodemcu"
         />
-      }{" "}
+      }
       {
         <BarCard
           isHover={isHover}
