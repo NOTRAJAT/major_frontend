@@ -26,7 +26,7 @@ const SensorCard = ({ SetSubscription, topic }) => {
         Temperature Sensor (bmp280)
       </div>
 
-      <div className="w-10/12 text-xs font-open text-left line-clamp-2 hover:line-clamp-none transition-all mb-2 hover:text-sm">
+      {/* <div className="w-10/12 text-xs font-open text-left line-clamp-2 hover:line-clamp-none transition-all mb-2 hover:text-sm">
         The BMP280 is a high-precision, low-power digital barometric pressure
         and temperature sensor. It can measure atmospheric pressure to determine
         altitude and provide accurate temperature readings. Commonly used in
@@ -34,7 +34,7 @@ const SensorCard = ({ SetSubscription, topic }) => {
         both I2C and SPI communication protocols. With its small size and low
         power consumption, the BMP280 is ideal for mobile and battery-operated
         applications.
-      </div>
+      </div> */}
 
       <div className="w-full flex justify-center my-4">
         <div className="w-6 h-40 bg-slate-200 rounded-full border relative flex items-end">
