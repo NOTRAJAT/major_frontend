@@ -22,9 +22,9 @@ const SensorCard = ({ SetSubscription, topic }) => {
 
   return (
     <div className="w-64 h-fit bg-white rounded-xl flex flex-col items-center p-4 relative transition-all hover:drop-shadow-[0px_0px_20px_rgba(0,0,0,.80)] duration-500">
-      <div className="w-10/12 text-sm font-open font-semibold text-gray-600 mb-3 text-left">
+      {/* <div className="w-10/12 text-sm font-open font-semibold text-gray-600 mb-3 text-left">
         Temperature Sensor (bmp280)
-      </div>
+      </div> */}
 
       {/* <div className="w-10/12 text-xs font-open text-left line-clamp-2 hover:line-clamp-none transition-all mb-2 hover:text-sm">
         The BMP280 is a high-precision, low-power digital barometric pressure
