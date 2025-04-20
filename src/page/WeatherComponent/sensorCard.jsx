@@ -21,7 +21,7 @@ const SensorCard = ({ SetSubscription, topic }) => {
   const fillHeight = Math.min((reading / maxValue) * 100, 100).toFixed(0);
 
   return (
-    <div className="w-64 h-fit bg-white rounded-xl flex flex-col items-center p-4 relative transition-all hover:drop-shadow-[0px_0px_20px_rgba(0,0,0,.80)] duration-500 hover:rounded-xl">
+    <div className="w-64 h-fit bg-white rounded-xl flex flex-col items-center p-4 relative transition-shadow hover:drop-shadow-[0px_0px_20px_rgba(0,0,0,.80)] duration-500 hover:rounded-xl">
       {/* <div className="w-10/12 text-sm font-open font-semibold text-gray-600 mb-3 text-left">
         Temperature Sensor (bmp280)
       </div> */}
