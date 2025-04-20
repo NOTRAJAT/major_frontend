@@ -11,6 +11,7 @@ import {
 } from "../env"; // Environment constants
 import Button_ from "./component/CentreBox/Button_";
 import PressureSensorCard from "./WeatherComponent/PressureSensorCard";
+import LightSensorCard from "./WeatherComponent/LightSensorCard";
 
 // Function to handle incoming device subscriptions
 const DeviceSub = (payload) => {
@@ -127,6 +128,7 @@ const WeatherApp = () => {
           <div className="w-4/5 flex justify-start items-center gap-x-3">
             <SensorCard topic="temperature" SetSubscription={SetSubscription} />{" "}
             <PressureSensorCard topic="pressure" SetSubscription={SetSubscription}/>
+            <LightSensorCard topic="ldr" SetSubscription={SetSubscription}/>
             {/* Sensor card for temperature */}
           </div>
           
