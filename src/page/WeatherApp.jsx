@@ -121,17 +121,15 @@ const WeatherApp = () => {
     <>
       {/* Main container with background styling */}
       <div className="relative">
-        <div className="bg-[#E3E8EC] h-svh flex justify-center items-center bg-gradient-to-r from-gray-100 via-gray-100 to-gray-400 relative ">
+        <div className="bg-[#E3E8EC] h-svh flex justify-center items-start bg-gradient-to-r from-gray-100 via-gray-100 to-gray-400 relative ">
           <LeftBar SetSubscription={SetSubscription} />
           {/* Left bar component */}
-          <div className="w-4/5 flex justify-start items-center">
+          <div className="w-4/5 flex justify-start items-center gap-x-3">
             <SensorCard topic="temperature" SetSubscription={SetSubscription} />{" "}
-          
+            <PressureSensorCard topic="temperature" SetSubscription={SetSubscription}/>
             {/* Sensor card for temperature */}
           </div>
-          <div className="w-4/5 flex justify-start items-center">
-          <PressureSensorCard topic="temperature" SetSubscription={SetSubscription}/>
-          </div>
+          
         </div>
         {authFailed && (
           <div className="w-[100vw]  h-[100vh] bg-black bg-opacity-50 backdrop-blur-2xl absolute top-0 left-0 z-10 text-white p-4  flex justify-center items-center">

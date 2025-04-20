@@ -63,7 +63,7 @@ const PressureSensorCard = ({ SetSubscription, topic }) => {
           </div>
           
           {/* Tick marks */}
-          {[...Array(8)].map((_, i) => (
+          {/* {[...Array(8)].map((_, i) => (
             <div
               key={i}
               className="absolute w-1 h-4 bg-gray-300"
@@ -74,7 +74,7 @@ const PressureSensorCard = ({ SetSubscription, topic }) => {
                 transformOrigin: 'bottom'
               }}
             ></div>
-          ))}
+          ))} */}
         </div>
 
         {/* Status label */}
