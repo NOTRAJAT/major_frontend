@@ -126,7 +126,7 @@ const WeatherApp = () => {
           {/* Left bar component */}
           <div className="w-4/5 flex justify-start items-center gap-x-3">
             <SensorCard topic="temperature" SetSubscription={SetSubscription} />{" "}
-            <PressureSensorCard topic="temperature" SetSubscription={SetSubscription}/>
+            <PressureSensorCard topic="pressure" SetSubscription={SetSubscription}/>
             {/* Sensor card for temperature */}
           </div>
           
