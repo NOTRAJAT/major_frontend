@@ -38,10 +38,7 @@ const PressureSensorCard = ({ SetSubscription, topic }) => {
       
       {/* Main content */}
       <div className="relative w-full h-full flex flex-col items-center justify-between z-10">
-        {/* Pressure reading */}
-        <div className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-sky-700">
-          {reading.toFixed(1)} hPa
-        </div>
+       
         
         {/* Circular pressure gauge */}
         <div className="relative w-48 h-48">
@@ -76,7 +73,10 @@ const PressureSensorCard = ({ SetSubscription, topic }) => {
             ></div>
           ))} */}
         </div>
-
+             {/* Pressure reading */}
+        <div className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-sky-700">
+          {reading.toFixed(1)} hPa
+        </div>
         {/* Status label */}
         <div className="text-lg font-medium text-gray-600">
           <span className="block text-center">Pressure</span>
