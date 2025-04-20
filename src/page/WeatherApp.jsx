@@ -10,6 +10,7 @@ import {
   UPDATE_MQTT_USER_INTERVAL,
 } from "../env"; // Environment constants
 import Button_ from "./component/CentreBox/Button_";
+import PressureSensorCard from "./WeatherComponent/PressureSensorCard";
 
 // Function to handle incoming device subscriptions
 const DeviceSub = (payload) => {
@@ -123,8 +124,9 @@ const WeatherApp = () => {
         <div className="bg-[#E3E8EC] h-svh flex justify-center items-center bg-gradient-to-r from-gray-100 via-gray-100 to-gray-400 relative ">
           <LeftBar SetSubscription={SetSubscription} />
           {/* Left bar component */}
-          <div className="w-4/5 flex justify-start items-center">
+          <div className="w-4/5 flex justify-start items-start">
             <SensorCard topic="temperature" SetSubscription={SetSubscription} />{" "}
+            <PressureSensorCard topic="pressure" SetSubscription={SetSubscription}/>
             {/* Sensor card for temperature */}
           </div>
         </div>

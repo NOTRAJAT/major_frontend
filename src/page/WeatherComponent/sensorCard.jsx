@@ -11,8 +11,9 @@ const SensorCard = ({ SetSubscription, topic }) => {
       return {
         ...prev,
         [topic]: (payload) => {
-          setReading(parseFloat(Decoder.decode(payload)));
-          console.log(Decoder.decode(payload));
+          let body = Decoder.decode(payload)
+          setReading(parseFloat(body));
+          console.log(body);
         },
       };
     });
