@@ -40,28 +40,10 @@ const LightSensorCard = ({ SetSubscription, topic }) => {
       
       {/* Main content */}
       <div className="relative w-full h-full flex flex-col items-center justify-between z-10">
-        {/* Gauge visualization */}
-        <div className="relative w-48 h-48">
-          {/* Gauge background */}
-          <div className="absolute inset-0 rounded-full border-8 border-gray-100"></div>
-          
-          {/* Gauge track */}
-          <div className="absolute inset-4 rounded-full border-[16px] border-gray-200"
-               style={{ clipPath: 'polygon(50% 50%, -20% -20%, 120% -20%, 120% 120%, -20% 120%)' }}>
-          </div>
-          
-          {/* Gauge fill */}
-          <div className={`absolute inset-4 rounded-full border-[16px] bg-gradient-to-r ${lightColor}`}
-               style={{ 
-                 clipPath: 'polygon(50% 50%, -20% -20%, 120% -20%, 120% 120%, -20% 120%)',
-                 transform: `rotate(${rotationAngle}deg)`,
-                 transition: 'transform 1s ease-out',
-                 borderColor: 'transparent'
-               }}>
-          </div>
-          
-          {/* Center point */}
-          <div className="absolute inset-[40%] rounded-full bg-gray-800 shadow-lg"></div>
+        {/* Arrow visualization */}
+        <div className="relative w-48 h-48 flex items-center justify-center">
+          {/* Circular background */}
+          <div className="absolute w-full h-full rounded-full border-8 border-gray-100"></div>
           
           {/* Tick marks */}
           {[...Array(7)].map((_, i) => (
@@ -76,6 +58,27 @@ const LightSensorCard = ({ SetSubscription, topic }) => {
               }}
             ></div>
           ))}
+          
+          {/* Arrow */}
+          <div 
+            className={`w-4 h-32 bg-gradient-to-t ${lightColor} rounded-t-full`}
+            style={{
+              transform: `rotate(${rotationAngle}deg)`,
+              transformOrigin: 'bottom center',
+              transition: 'transform 1s ease-out'
+            }}
+          >
+            {/* Arrow head */}
+            <div 
+              className={`w-8 h-8 bg-gradient-to-t ${lightColor} -translate-x-2`}
+              style={{
+                clipPath: 'polygon(50% 0, 100% 100%, 0 100%)'
+              }}
+            ></div>
+          </div>
+          
+          {/* Center point */}
+          <div className="absolute w-6 h-6 rounded-full bg-gray-800 shadow-lg"></div>
         </div>
 
         {/* Light reading */}
