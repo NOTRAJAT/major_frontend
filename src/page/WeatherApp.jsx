@@ -128,8 +128,11 @@ const WeatherApp = () => {
         <div className="bg-[#E3E8EC] h-svh flex justify-center items-start bg-gradient-to-r from-gray-100 via-gray-100 to-gray-400 relative ">
           <LeftBar SetSubscription={SetSubscription} />
           {/* Left bar component */}
-          <div className="w-4/5 flex justify-start items-center gap-x-3">
-            <SensorCard topic="temperature" SetSubscription={SetSubscription} />{" "}
+          <div className="w-11/12  items-center gap-x-3 relative">
+          <div className=" absolute top-2 left-0">
+          <SensorCard topic="temperature" SetSubscription={SetSubscription} />{" "}
+          </div>
+ 
             <PressureSensorCard topic="pressure" SetSubscription={SetSubscription}/>
             <LightSensorCard topic="ldr" SetSubscription={SetSubscription}/> 
             <HumidityCard topic="humidity" SetSubscription={SetSubscription}/>
