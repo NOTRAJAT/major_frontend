@@ -12,6 +12,7 @@ import {
 import Button_ from "./component/CentreBox/Button_";
 import PressureSensorCard from "./WeatherComponent/PressureSensorCard";
 import LightSensorCard from "./WeatherComponent/LightSensorCard";
+import HumidityCard from "./WeatherComponent/HumidityCard";
 
 // Function to handle incoming device subscriptions
 const DeviceSub = (payload) => {
@@ -129,6 +130,7 @@ const WeatherApp = () => {
             <SensorCard topic="temperature" SetSubscription={SetSubscription} />{" "}
             <PressureSensorCard topic="pressure" SetSubscription={SetSubscription}/>
             <LightSensorCard topic="ldr" SetSubscription={SetSubscription}/>
+            <HumidityCard topic="humidity" SetSubscription={SetSubscription}/>
             {/* Sensor card for temperature */}
           </div>
           
