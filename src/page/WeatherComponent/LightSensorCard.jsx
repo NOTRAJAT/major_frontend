@@ -31,7 +31,7 @@ const LightSensorCard = ({ SetSubscription, topic }) => {
   }
 
   return (
-    <div className="w-64 h-96 bg-white rounded-2xl p-6 shadow-lg flex flex-col items-center justify-between">
+    <div className="w-64 h-64 bg-white rounded-2xl p-6 shadow-lg flex flex-col items-center justify-between">
       {/* Light reading display */}
       
 
@@ -63,7 +63,7 @@ const LightSensorCard = ({ SetSubscription, topic }) => {
         </div> */}
 
       </div>
-      
+
       <div className="text-xl font-bold text-gray-800 flex items-baseline gap-2">
         {reading.toFixed(1)}
         <span className="text-base text-gray-500">lux</span>
