@@ -33,10 +33,7 @@ const LightSensorCard = ({ SetSubscription, topic }) => {
   return (
     <div className="w-64 h-96 bg-white rounded-2xl p-6 shadow-lg flex flex-col items-center justify-between">
       {/* Light reading display */}
-      <div className="text-4xl font-bold text-gray-800 flex items-baseline gap-2">
-        {reading.toFixed(1)}
-        <span className="text-base text-gray-500">lux</span>
-      </div>
+      
 
       {/* Semi-circular meter */}
       <div className="relative w-48 h-24 mt-4">
@@ -54,7 +51,7 @@ const LightSensorCard = ({ SetSubscription, topic }) => {
         ></div>
 
         {/* Measurement marks */}
-        <div className="absolute w-full h-full flex justify-between px-2">
+        {/* <div className="absolute w-full h-full flex justify-between px-2">
           {[500, 250, 0, 250, 500].map((value) => (
             <div key={value} className="relative h-full w-0">
               <div className="absolute top-0 w-[2px] h-2 bg-gray-400"></div>
@@ -63,8 +60,13 @@ const LightSensorCard = ({ SetSubscription, topic }) => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
+      </div>
+      
+      <div className="text-xl font-bold text-gray-800 flex items-baseline gap-2">
+        {reading.toFixed(1)}
+        <span className="text-base text-gray-500">lux</span>
       </div>
 
       {/* Status indicator */}
