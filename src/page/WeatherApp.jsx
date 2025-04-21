@@ -132,7 +132,7 @@ const WeatherApp = () => {
             <PressureSensorCard topic="pressure" SetSubscription={SetSubscription}/>
             <LightSensorCard topic="ldr" SetSubscription={SetSubscription}/> 
             <HumidityCard topic="humidity" SetSubscription={SetSubscription}/>
-            <Co2Card opic="gas" SetSubscription={SetSubscription}/>
+            <Co2Card topic="gas" SetSubscription={SetSubscription}/>
             {/* Sensor card for temperature */}
           </div>
           
