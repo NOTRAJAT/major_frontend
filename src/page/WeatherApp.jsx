@@ -129,6 +129,7 @@ const WeatherApp = () => {
           <LeftBar SetSubscription={SetSubscription} />
           {/* Left bar component */}
           <div className="w-4/5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <SensorCard topic="temperature" SetSubscription={SetSubscription} />
   <PressureSensorCard topic="pressure" SetSubscription={SetSubscription} />
   <LightSensorCard topic="ldr" SetSubscription={SetSubscription} />
   <HumidityCard topic="humidity" SetSubscription={SetSubscription} />
