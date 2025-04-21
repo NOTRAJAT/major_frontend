@@ -27,14 +27,20 @@ const LightSensorCard = ({ SetSubscription, topic }) => {
 
   // Set color based on light levels
   let lightColor = "from-amber-200 to-amber-400"; // Low light
+  let bgColor = "bg-amber-50";
   if (reading > 300 && reading <= 600) {
     lightColor = "from-yellow-300 to-yellow-500"; // Medium light
+    bgColor = "bg-yellow-50";
   } else if (reading > 600) {
     lightColor = "from-yellow-400 to-orange-400"; // Bright light
+    bgColor = "bg-orange-50";
   }
 
+  // Generate interval markers
+  const intervals = [0, 200, 400, 600, 800, 1000];
+
   return (
-    <div className="w-64 h-96 bg-white rounded-2xl p-6 shadow-lg flex flex-col items-center transition-all hover:shadow-2xl duration-500 relative overflow-hidden">
+    <div className={`w-64 h-96 bg-white rounded-2xl p-6 shadow-lg flex flex-col items-center transition-all hover:shadow-2xl duration-500 relative overflow-hidden ${bgColor}`}>
       {/* Light rays effect background */}
       <div className="absolute inset-0 bg-gradient-to-b from-yellow-50/20 to-transparent"></div>
       
@@ -42,11 +48,33 @@ const LightSensorCard = ({ SetSubscription, topic }) => {
       <div className="relative w-full h-full flex flex-col items-center justify-between z-10">
         {/* Arrow visualization */}
         <div className="relative w-48 h-48 flex items-center justify-center">
-          {/* Outer ring */}
-          <div className="absolute w-full h-full rounded-full border-4 border-gray-100"></div>
+          {/* Outer ring with intervals */}
+          <div className="absolute w-full h-full rounded-full border-4 border-gray-100">
+            {intervals.map((value, index) => {
+              const angle = -120 + (value / maxValue) * 240;
+              return (
+                <div key={index} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  {/* Interval line */}
+                  <div
+                    className="h-24 w-[2px] bg-gray-200 origin-bottom absolute bottom-0"
+                    style={{ transform: `rotate(${angle}deg)` }}
+                  ></div>
+                  {/* Interval text */}
+                  <div
+                    className="absolute whitespace-nowrap text-xs text-gray-500 font-medium"
+                    style={{
+                      transform: `rotate(${angle}deg) translateY(-96px) rotate(${-angle}deg)`,
+                    }}
+                  >
+                    {value}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
           
           {/* Inner ring with gradient */}
-          <div className="absolute w-[90%] h-[90%] rounded-full border-8 border-gray-50/50"></div>
+          <div className={`absolute w-[90%] h-[90%] rounded-full ${bgColor} transition-colors duration-500`}></div>
           
           {/* Modern arrow design */}
           <div className="relative w-full h-full">
