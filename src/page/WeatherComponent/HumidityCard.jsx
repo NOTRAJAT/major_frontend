@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Decoder } from "../../utils";
 
-const SensorCard = ({ SetSubscription, topic }) => {
+const HumidityCard = ({ SetSubscription, topic }) => {
   const maxValue = 100;
   const [reading, setReading] = useState(0.0);
 
