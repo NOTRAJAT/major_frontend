@@ -77,12 +77,18 @@ const PressureSensorCard = ({ SetSubscription, topic }) => {
         <div className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-sky-700">
           {reading.toFixed(1)} hPa
         </div>
-        {/* Status label */}
-        <div className="text-lg font-medium text-gray-600">
-          <span className="block text-center">Pressure</span>
-          <span className="block text-sm text-gray-400 mt-1">
+  {/* Status indicator */}
+  <div className="mt-8 text-center">
+          <div className="text-lg font-semibold text-gray-700">Pressure</div>
+          <div className={`mt-2 px-4 py-1 rounded-full text-sm font-medium ${
+            reading < 980 
+              ? 'bg-indigo-100 text-indigo-700' 
+              : reading > 1020 
+                ? 'bg-amber-100 text-amber-700' 
+                : 'bg-emerald-100 text-emerald-700'
+          }`}>
             {reading < 980 ? 'Low' : reading > 1020 ? 'High' : 'Normal'}
-          </span>
+          </div>
         </div>
       </div>
     </div>
