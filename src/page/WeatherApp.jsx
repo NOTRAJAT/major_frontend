@@ -14,6 +14,7 @@ import PressureSensorCard from "./WeatherComponent/PressureSensorCard";
 import LightSensorCard from "./WeatherComponent/LightSensorCard";
 import HumidityCard from "./WeatherComponent/HumidityCard";
 import Co2Card from "./WeatherComponent/Co2Card";
+import TemperatureCard1 from "./WeatherComponent/temperatureCard1";
 
 // Function to handle incoming device subscriptions
 const DeviceSub = (payload) => {
@@ -133,6 +134,7 @@ const WeatherApp = () => {
             <LightSensorCard topic="ldr" SetSubscription={SetSubscription}/> 
             <HumidityCard topic="humidity" SetSubscription={SetSubscription}/>
             <Co2Card topic="gas" SetSubscription={SetSubscription}/>
+            <TemperatureCard1 topic="temperature1" SetSubscription={SetSubscription}/>
             {/* Sensor card for temperature */}
           </div>
           

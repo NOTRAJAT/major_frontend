@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Decoder } from "../../utils";
 
-const temperatureCard1 = ({ SetSubscription, topic }) => {
+const TemperatureCard1 = ({ SetSubscription, topic }) => {
   const maxValue = 55;
   const [reading, setReading] = useState(0.0);
 
@@ -50,9 +50,9 @@ const temperatureCard1 = ({ SetSubscription, topic }) => {
   );
 };
 
-export default temperatureCard1;
+export default TemperatureCard1;
 
-temperatureCard1.propTypes = {
+TemperatureCard1.propTypes = {
   SetSubscription: PropTypes.func.isRequired,
   topic: PropTypes.string.isRequired,
 };
