@@ -55,7 +55,7 @@ const LightSensorCard = ({ SetSubscription, topic }) => {
 
         {/* Measurement marks */}
         <div className="absolute w-full h-full flex justify-between px-2">
-          {[0, 250, 500, 750, 1000].map((value) => (
+          {[500, 250, 0, 250, 500].map((value) => (
             <div key={value} className="relative h-full w-0">
               <div className="absolute top-0 w-[2px] h-2 bg-gray-400"></div>
               <div className="absolute -top-6 -translate-x-1/2 text-sm text-gray-600">
@@ -65,14 +65,6 @@ const LightSensorCard = ({ SetSubscription, topic }) => {
           ))}
         </div>
 
-        {/* Arrow indicator */}
-        <div 
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 origin-bottom transition-transform duration-500"
-          style={{ transform: `rotate(${rotationAngle}deg)` }}
-        >
-          <div className="w-1 h-20 bg-gray-800"></div>
-          <div className="w-3 h-3 bg-gray-800 rounded-full -translate-x-1"></div>
-        </div>
       </div>
 
       {/* Status indicator */}
