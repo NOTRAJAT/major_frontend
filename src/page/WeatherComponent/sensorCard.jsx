@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Decoder } from "../../utils";
 
-const SensorCard = ({ SetSubscription, topic }) => {
-  const maxValue = 55;
+const HumidityCard = ({ SetSubscription, topic }) => {
+  const maxValue = 100;
   const [reading, setReading] = useState(0.0);
 
   useEffect(() => {
@@ -11,48 +11,77 @@ const SensorCard = ({ SetSubscription, topic }) => {
       return {
         ...prev,
         [topic]: (payload) => {
-          let body = Decoder.decode(payload)
-          setReading(parseFloat(body));
-          console.log(body);
+          setReading(parseFloat(Decoder.decode(payload)));
+          console.log(Decoder.decode(payload));
         },
       };
     });
   }, []);
 
-  const percentage = Math.min((reading / maxValue) * 100, 100);
+  // Normalize humidity reading for visualization
+  const normalizedHumidity = Math.max(0, Math.min(100, reading));
 
-  // Set color based on temperature
-  let barColor = "bg-gradient-to-r from-blue-500 to-blue-300"; // Cool
-  if (reading > 20 && reading <= 35) {
-    barColor = "bg-gradient-to-r from-yellow-400 to-yellow-200"; // Warm
-  } else if (reading > 35) {
-    barColor = "bg-gradient-to-r from-red-500 to-red-300"; // Hot
+  // Set color based on humidity levels
+  let humidityColor = "from-blue-300 to-blue-600"; // Low humidity
+  if (reading > 30 && reading <= 60) {
+    humidityColor = "from-green-300 to-green-600"; // Optimal humidity
+  } else if (reading > 60) {
+    humidityColor = "from-red-300 to-red-600"; // High humidity
   }
 
   return (
-    <div className="w-64 h-fit bg-white rounded-2xl p-4 shadow-lg flex flex-col items-center transition-shadow hover:shadow-2xl duration-500">
-      <div className="w-full flex flex-col items-center">
-        {/* Temperature Bar Container */}
-        <div className="w-full h-6 bg-gray-200 rounded-full overflow-hidden mb-4">
-          {/* Temperature Bar Fill */}
-          <div
-            className={`h-full ${barColor} transition-all duration-300 ease-in-out`}
-            style={{ width: `${percentage}%` }}
-          ></div>
+    <div className="w-64 h-96 bg-white rounded-2xl p-6 shadow-lg flex flex-col items-center transition-all hover:shadow-2xl duration-500 relative overflow-hidden">
+      {/* Background effect */}
+      <div className="absolute inset-0 bg-gradient-to-t from-transparent to-blue-50/30 animate-pulse"></div>
+      
+      {/* Main content */}
+      <div className="relative w-full h-full flex flex-col items-center justify-between z-10">
+        {/* Circular humidity gauge */}
+        <div className="relative w-48 h-48">
+          {/* Background circle */}
+          <div className="absolute inset-0 rounded-full border-8 border-gray-100"></div>
+          
+          {/* Humidity indicator */}
+          <div className="absolute inset-2 rounded-full bg-gradient-to-br from-gray-50 to-gray-100 shadow-inner flex items-center justify-center">
+            <div 
+              className={`w-36 h-36 rounded-full bg-gradient-to-br ${humidityColor} transform transition-all duration-1000 ease-in-out flex items-center justify-center`}
+              style={{
+                transform: `scale(${0.5 + (normalizedHumidity / 200)})`,
+                boxShadow: '0 0 20px rgba(0,0,0,0.1)'
+              }}
+            >
+              {/* Pulse effect */}
+              <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${humidityColor} animate-ping opacity-20`}></div>
+            </div>
+          </div>
         </div>
 
-        <div className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-sky-700">
-          {reading.toFixed(1)}°C
+        {/* Humidity reading */}
+        <div className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-700">
+          {reading.toFixed(1)}%
         </div>
-        <div className="text-sm text-gray-400">Temperature</div>
+
+        {/* Status indicator */}
+        <div className="mt-8 text-center">
+          <div className="text-lg font-semibold text-gray-700">Humidity</div>
+          <div className={`mt-2 px-4 py-1 rounded-full text-sm font-medium ${
+            reading <= 30 
+              ? 'bg-blue-100 text-blue-700' 
+              : reading > 60 
+                ? 'bg-red-100 text-red-700' 
+                : 'bg-green-100 text-green-700'
+          }`}>
+            {reading <= 30 ? 'Low' : reading > 60 ? 'High' : 'Optimal'}
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default SensorCard;
+export default HumidityCard;
 
-SensorCard.propTypes = {
+HumidityCard.propTypes = {
   SetSubscription: PropTypes.func.isRequired,
   topic: PropTypes.string.isRequired,
 };
