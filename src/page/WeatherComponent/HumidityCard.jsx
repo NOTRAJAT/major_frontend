@@ -93,7 +93,7 @@ const HumidityCard = ({ SetSubscription, topic }) => {
 
 export default HumidityCard;
 
-SensorCard.propTypes = {
+HumidityCard.propTypes = {
   SetSubscription: PropTypes.func.isRequired,
   topic: PropTypes.string.isRequired,
 };

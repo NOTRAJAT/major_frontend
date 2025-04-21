@@ -41,7 +41,7 @@ const SensorCard = ({ SetSubscription, topic }) => {
           ></div>
         </div>
 
-        <div className="text-lg font-semibold text-gray-600">
+        <div className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-sky-700">
           {reading.toFixed(1)}°C
         </div>
         <div className="text-sm text-gray-400">Temperature</div>
