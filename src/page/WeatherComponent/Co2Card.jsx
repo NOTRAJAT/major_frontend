@@ -37,7 +37,7 @@ const Co2Card = ({ SetSubscription, topic }) => {
       };
     
       return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-4 flex items-center justify-center">
+        <div className="min-h-fit bg-gradient-to-br from-gray-50 to-gray-100 p-4 flex items-center justify-center">
           <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md border border-gray-100">
             <div className="flex items-start justify-between mb-8">
               <div>
@@ -86,7 +86,7 @@ const Co2Card = ({ SetSubscription, topic }) => {
                 {getMessage(reading)}
               </div>
     
-              <div className="grid grid-cols-3 gap-4 text-center text-sm">
+              {/* <div className="grid grid-cols-3 gap-4 text-center text-sm">
                 <div className="p-3 rounded-lg bg-gray-50">
                   <div className="font-semibold text-gray-800">800</div>
                   <div className="text-gray-500">Good</div>
@@ -99,7 +99,7 @@ const Co2Card = ({ SetSubscription, topic }) => {
                   <div className="font-semibold text-gray-800">2000+</div>
                   <div className="text-gray-500">Danger</div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
